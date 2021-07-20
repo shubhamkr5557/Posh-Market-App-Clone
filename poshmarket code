@@ -1,0 +1,2401 @@
+        *Posh Market app 
+        __________________ 
+
+
+ #Page-1(app.js) 
+
+ import 'react-native-gesture-handler';
+ import { NavigationContainer } from '@react-navigation/native';
+ import { createStackNavigator } from '@react-navigation/stack';
+ import React ,{Component} from 'react';
+ import {Text,View,Image,StyleSheet,TextInput,Button}from 'react-native';
+
+ import welcome from './screens/welcome'
+ import women from './screens/women'
+ import men from './screens/men'
+ import listing from'./screens/listing'
+ import product from './screens/product'
+ import filter from './screens/filter'
+ import sell from './screens/sell'
+ import deals from './screens/deals'
+import general from './screens/general';
+ 
+ const Stack = createStackNavigator();
+ 
+ class App extends Component {
+ 
+ 
+   render() {
+     return ( 
+       <NavigationContainer>
+       <Stack.Navigator initialRouteName="welcome">
+       <Stack.Screen name="welcome" component={welcome} 
+       options={{headerShown: false}}/>
+
+         <Stack.Screen name="women" component={women}
+          options={{headerShown: false}}/>
+
+         <Stack.Screen name="men" component={men}
+          options={{headerShown: false}}/>
+
+         <Stack.Screen  name="listing" component={listing} 
+         options={{headerShown: false}}/>
+
+         <Stack.Screen  name="product" component={product} 
+         options={{headerShown: false}}/>
+
+         
+         <Stack.Screen  name="filter" component={filter} 
+         options={{headerShown: false}}/>
+
+        <Stack.Screen  name="sell" component={sell} 
+         options={{headerShown: false}}/>
+
+        <Stack.Screen  name="deals" component={deals} 
+         options={{headerShown: false}}/>
+
+        <Stack.Screen  name="general" component={general} 
+         options={{headerShown: false}}/>
+
+       </Stack.Navigator>
+     </NavigationContainer>
+     );
+   }}
+      
+ export default App;
+
+
+
+    #Page-2 index.js
+
+import {AppRegistry} from 'react-native';
+import {name as appName} from './app.json';
+
+
+import App from './App';
+// import welcome from './screens/welcome';
+// import women from './screens/women';
+// import men from './screens/men';
+// import listing from './screens/listing';
+// import product from './screens/product';
+// import filter from './screens/filter';
+// import sell from './screens/sell';
+// import deals from './screens/deals';
+// import general from './screens/general';
+
+
+
+
+AppRegistry.registerComponent(appName, () => App);
+// AppRegistry.registerComponent(appName, () => welcome);
+// AppRegistry.registerComponent(appName, () => women);
+// AppRegistry.registerComponent(appName, () => men);
+// AppRegistry.registerComponent(appName, () => listing);
+// AppRegistry.registerComponent(appName, () => product);
+// AppRegistry.registerComponent(appName, () => filter);
+// AppRegistry.registerComponent(appName, () => sell);
+// AppRegistry.registerComponent(appName, () => deals);
+// AppRegistry.registerComponent(appName, () => general);
+
+  
+
+
+   #Page-3 Women screen
+
+import React, { Component } from 'react';
+import { Text, View, ScrollView, StyleSheet, Image,Dimensions,
+        TouchableOpacity} from 'react-native';
+
+
+const device_width=Dimensions.get("window").width;
+
+class women extends Component{
+
+  render(){
+   return(
+    <View style={styles.container}>
+                     <View>
+                        <View style={styles.headerTextView2}>
+                        <View style={{ flex: 3 }}> 
+                        <TouchableOpacity>
+                          <Text style={styles.headerText2}>Women</Text> 
+                          </TouchableOpacity> 
+
+                          <View style={{ 
+                                      height: 0,               
+                                      width: 195,              
+                                      borderTopColor: 'orange', 
+                                      borderTopWidth: 2,       
+                                      marginTop: 0,
+                                      top:17,
+                                      left:1            
+                                  }} />
+                          </View>
+
+                          <View style={{ flex: 2 }}> 
+                          <TouchableOpacity onPress={() => {this.props.navigation.navigate('men')}}>
+                          <Text style={styles.headerText3}>Men</Text>
+                          </TouchableOpacity>
+                          </View>
+                          </View>
+              
+                         
+                  
+                     
+    <View style={styles.headerTextView3}>
+     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <View style={{  flexDirection:"row", }}>
+
+     <View style={styles.iconsquare}>
+     <TouchableOpacity >
+     <Image source={require('../images/current.jpg')}  
+       style={{width: 158, height:45, borderRadius: 10,bottom:10,right:6,
+       borderWidth:3,borderColor:'orange'}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Premium</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/current4.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Current</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/favourite.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Favourite</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/following.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Following</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/popular2.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Popular</Text>
+      </TouchableOpacity>
+      </View>
+      
+      </View>
+      </ScrollView>
+      </View>
+      </View>
+
+      <ScrollView>
+       <View >
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={{  flexDirection:"row",width:"100%",justifyContent:"space-evenly" }}>
+
+        <View  style={styles.iconcircle}>
+        <TouchableOpacity onPress={() => {this.props.navigation.navigate('listing')}}>
+        <Image 
+          source={require('../images/ic1.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     OValya</Text>
+        </TouchableOpacity>
+        </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity >
+         <Image 
+          source={require('../images/ic7.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+                   <Text >     AnnV</Text>
+       </TouchableOpacity>
+       </View>
+    
+      <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/ic3.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+          <Text >     AHeT</Text>
+         </TouchableOpacity>
+         </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/ic4.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+          <Text >     nnn008</Text>
+        </TouchableOpacity>
+        </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/ic5.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     Zorara</Text>
+       </TouchableOpacity>
+       </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/wic6.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     keti14</Text>
+       </TouchableOpacity>
+       </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/wic7.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     AHHay</Text>
+       </TouchableOpacity>
+       </View>
+
+
+
+       </View>
+       </ScrollView>
+       </View>
+
+
+    <View>
+     {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:'100%'}}>
+
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity onPress={() => {this.props.navigation.navigate('product')}}>
+                  <View>
+                  <Image source={require('../images/bag5.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  CHANEL</Text>
+                  <Text style={styles.imgTextSmall}>  180,000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/sd2.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  SOUVENIR</Text>
+                  <Text style={styles.imgTextSmall}>  10500 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+    </View>
+   {/* </View> */}
+  </View>
+{/* 
+  <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:"100%"}}>
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/sd8.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  GIANVITO RO...</Text>
+                  <Text style={styles.imgTextSmall}>  12000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/sd62.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  TORY BURCH</Text>
+                  <Text style={styles.imgTextSmall}>  4500 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+     </View>
+     {/* </View> */}
+   
+   {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:'100%'}}>
+
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/sd52.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10,bottom:20}}>
+                  <Text style={styles.imgTextLarge}>  COS</Text>
+                  <Text style={styles.imgTextSmall}>  2500 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/sd4.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10,bottom:20}}>
+                  <Text style={styles.imgTextLarge}>  BARBARA BUI</Text>
+                  <Text style={styles.imgTextSmall}>  27000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+
+  </View>
+  {/* </View> */}
+ </ScrollView>
+
+                     
+                
+                  <View>
+                   <View style={styles.footerTextView}>
+                   <TouchableOpacity >
+                    <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/feed5.png')}  style={[{height:40,width:40}]} />
+                        <Text style={{fontWeight:'bold',fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Feed</Text>
+                     </View>
+                    </TouchableOpacity>
+
+                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('filter')}} >
+                     <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/search5.png')}  style={{height:45,width:40}} />
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Filter</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('sell')}}>
+                     <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/sell5.png')}  style={{height:45,width:40}} />
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Sell</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('deals')}}>
+                     <View style={{alignItems:'center'}}>
+                     <Image  source={require('../images/deals5.png')} style={{height:40,width:40}} />
+                    
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Deals</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('general')}}>
+                     <View style={{alignItems:'center'}}>
+                     <Image  source={require('../images/man5.png')}  style={{height:40,width:40}} />
+                     
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>General</Text>
+                     </View>
+                    </TouchableOpacity>
+                </View>
+            </View> 
+          </View>         
+   );
+  }
+}
+const styles = StyleSheet.create({
+         container: {
+             flex: 1,
+             backgroundColor:"#f4f4f4",
+         },
+        
+         product:{
+            width:device_width/2,
+            marginLeft:2,
+            height:230, 
+            alignContent:"center",
+            },
+           
+         iconsquare:{
+             height:45,
+             width:158,
+            flexDirection:"row",
+            marginTop:6,
+            paddingTop:8,
+            paddingBottom:8,
+            padding:10,
+            borderRadius:12, 
+            fontWeight: "bold",
+            paddingVertical:10,
+            paddingHorizontal:3,
+            borderWidth:2,
+            margin:5,
+            },
+
+            btncolor:{
+                color:'#dc143c'
+                },
+                
+         iconcircle:{
+           flexDirection:"row",
+           marginTop:6,
+           paddingTop:8,
+           paddingBottom:8,
+           padding:10,
+           borderRadius:18, 
+           fontWeight: "bold",
+           paddingVertical:10,
+           paddingHorizontal:5,
+           borderWidth:0,
+           margin:5,
+           },
+
+     sbmtbtn:{
+        color:"white",
+        fontSize:18,
+        alignSelf:'center'
+        },
+
+         headerText: {
+             paddingLeft: 38,
+             paddingTop: 16,
+             fontFamily: 'Roboto,sans-serif',
+             fontSize: 22,
+             color: 'white',
+             fontWeight: 'bold',
+         },
+
+         headerText2: {
+            paddingLeft: 68,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'black',
+            fontWeight: 'bold',
+            // textDecorationLine: 'underline',
+        },
+
+        headerText3: {
+            paddingLeft: 28,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'dimgrey',
+        },
+         
+         headerTextView2: {
+            backgroundColor: 'white',
+            height: 60,
+            flexDirection: 'row'
+        },
+
+        headerTextView3: {
+            backgroundColor: '#f4f4f4',
+            height: 80,
+            flexDirection: 'row',
+            top:10
+        },
+         
+         headerTouchOpTxt2: {
+            paddingLeft: 18,
+            color: 'dimgrey'
+        },
+        
+        btn:{
+            backgroundColor: 'white',
+            margin: '4%' 
+        },
+
+        btnView:{
+            flex: 6
+        },
+        
+
+         footerTextView:{
+            marginTop:0, 
+            height: 60,
+            flexDirection: 'row',
+            alignItems: 'center', 
+            justifyContent:'space-around',
+            bottom:0,
+            fontWeight:"bold",
+            backgroundColor:'white' 
+       }, 
+
+
+imgHorizontalScrollView1:{
+  marginTop:15,
+  flexDirection:'row',
+  width: device_width,
+  justifyContent:'space-evenly',
+  alignSelf:'center',
+
+},
+
+imageStyle:{
+  width:device_width/2-30,
+  resizeMode:'stretch',
+  alignSelf:'center',
+  borderTopLeftRadius:10,
+  borderTopRightRadius:10,
+  height:230,
+},
+
+imgTextLarge:{
+  fontFamily: 'Roboto',
+  fontSize: 18,
+  width:device_width/2-30,
+  fontWeight:'700'
+  },
+
+  imgTextSmall:{
+      fontFamily: 'Roboto',
+      fontSize: 14,
+      width:device_width/2-30,
+      fontWeight:'normal',
+      color:'orange',
+      
+      // color: 'rgb(102, 102, 102)'
+   },
+
+        
+    }
+)
+export default women;
+
+
+ 
+
+
+   #Page-4 Men Screen
+
+
+import React, { Component } from 'react';
+import { Text, View, ScrollView, StyleSheet, Image,Dimensions,
+        TouchableOpacity} from 'react-native';
+
+
+const device_width=Dimensions.get("window").width;
+
+class men extends Component{
+
+  render(){
+   return(
+    <View style={styles.container}>
+                     <View>
+                        <View style={styles.headerTextView2}>
+                        <View style={{ flex: 3 }}> 
+                        <TouchableOpacity onPress={() => {this.props.navigation.navigate('women')}}>
+                          <Text style={styles.headerText3}>Women</Text> 
+                          </TouchableOpacity> 
+
+                         
+                          </View>
+
+                          <View style={{ flex: 2 }}> 
+                          <TouchableOpacity>
+                          <Text style={styles.headerText2}>Men</Text>
+                          </TouchableOpacity>
+
+                          <View style={{ 
+                                      height: 0,               
+                                      width: 205,              
+                                      borderTopColor: 'orange', 
+                                      borderTopWidth: 2,       
+                                      marginTop: 0,
+                                      top:17,
+                                      right:40           
+                                  }} />
+                          </View>
+                          </View>
+              
+                         
+                  
+                     
+    <View style={styles.headerTextView3}>
+     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <View style={{  flexDirection:"row", }}>
+
+     <View style={styles.iconsquare}>
+     <TouchableOpacity >
+     <Image source={require('../images/mr1.jpg')}  
+       style={{width: 158, height:45, borderRadius: 10,bottom:10,right:6,
+       borderWidth:3,borderColor:'orange'}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Premium</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/mr2.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Current</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/mr3.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Favourite</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/mr4.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Following</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View style={styles.iconsquare}>
+     <TouchableOpacity>
+     <Image source={require('../images/mr5.jpg')}  
+       style={{width: 160, height:45, borderRadius: 10,bottom:10,right:5}} />
+           <Text  style = {{fontSize:18,color:'white',alignItems:'center',
+           fontWeight:'bold',bottom:44,left:40}}>Popular</Text>
+      </TouchableOpacity>
+      </View>
+      
+      </View>
+      </ScrollView>
+      </View>
+      </View>
+
+      <ScrollView>
+       <View >
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={{  flexDirection:"row",width:"100%",justifyContent:"space-evenly" }}>
+
+        <View  style={styles.iconcircle}>
+        <TouchableOpacity >
+        <Image 
+          source={require('../images/men1.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     Alekx</Text>
+        </TouchableOpacity>
+        </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity >
+         <Image 
+          source={require('../images/men2.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+                   <Text >     lemare</Text>
+       </TouchableOpacity>
+       </View>
+    
+      <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/men3.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+          <Text >     Mane03</Text>
+         </TouchableOpacity>
+         </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/men4.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+          <Text >     Elenkos</Text>
+        </TouchableOpacity>
+        </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/men5.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     Tanyabre..</Text>
+       </TouchableOpacity>
+       </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/men6.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     Lampi</Text>
+       </TouchableOpacity>
+       </View>
+
+       <View  style={styles.iconcircle}>
+        <TouchableOpacity>
+        <Image 
+          source={require('../images/men7.jpg')}  
+          style={{width: 80, height: 80, borderRadius: 80/ 2}} 
+          />
+           <Text >     Syree</Text>
+       </TouchableOpacity>
+       </View>
+
+
+
+       </View>
+       </ScrollView>
+       </View>
+
+
+    <View>
+     {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:'100%'}}>
+
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View>
+                  <Image source={require('../images/mpro1.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  GUCCI Wallets</Text>
+                  <Text style={styles.imgTextSmall}>  23,500 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/mpro2.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  PHILIPE Sneaker</Text>
+                  <Text style={styles.imgTextSmall}>  7770 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+   
+    </View>
+   {/* </View> */}
+  </View>
+{/* 
+  <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:"100%"}}>
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/mpro3.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  NIKE Jackets</Text>
+                  <Text style={styles.imgTextSmall}>  18,000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/mpro4.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  GUCCI Ties</Text>
+                  <Text style={styles.imgTextSmall}>  7000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+     </View>
+     {/* </View> */}
+   
+   {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:'100%'}}>
+
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/mpro5.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10,bottom:20}}>
+                  <Text style={styles.imgTextLarge}>  PHILIPP Slipons</Text>
+                  <Text style={styles.imgTextSmall}>  38000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity>
+                  <View>
+                  <Image source={require('../images/mpro6.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10,bottom:20}}>
+                  <Text style={styles.imgTextLarge}> PAUL Jackets</Text>
+                  <Text style={styles.imgTextSmall}>  19,500 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+  </View>
+  {/* </View> */}
+ </ScrollView>
+
+                     
+                
+                  <View>
+                   <View style={styles.footerTextView}>
+                   <TouchableOpacity >
+                    <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/feed5.png')}  style={[{height:40,width:40}]} />
+                        <Text style={{fontWeight:'bold',fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Feed</Text>
+
+                     </View>
+                    </TouchableOpacity>
+
+                   <TouchableOpacity  >
+                     <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/search5.png')}  style={{height:45,width:40}} />
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Filter</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity >
+                     <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/sell5.png')}  style={{height:45,width:40}} />
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Sell</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity >
+                     <View style={{alignItems:'center'}}>
+                     <Image  source={require('../images/deals5.png')} style={{height:40,width:40}} />
+                    
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Deals</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity >
+                     <View style={{alignItems:'center'}}>
+                     <Image  source={require('../images/man5.png')}  style={{height:40,width:40}} />
+                     
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>General</Text>
+                     </View>
+                    </TouchableOpacity>
+                </View>
+            </View> 
+          </View>         
+   );
+  }
+}
+const styles = StyleSheet.create({
+         container: {
+             flex: 1,
+             backgroundColor:"#f4f4f4",
+         },
+        
+         product:{
+            width:device_width/2,
+            marginLeft:2,
+            height:230, 
+            alignContent:"center",
+            },
+           
+         iconsquare:{
+             height:45,
+             width:158,
+            flexDirection:"row",
+            marginTop:6,
+            paddingTop:8,
+            paddingBottom:8,
+            padding:10,
+            borderRadius:12, 
+            fontWeight: "bold",
+            paddingVertical:10,
+            paddingHorizontal:3,
+            borderWidth:2,
+            margin:5,
+            },
+
+            btncolor:{
+                color:'#dc143c'
+                },
+                
+         iconcircle:{
+           flexDirection:"row",
+           marginTop:6,
+           paddingTop:8,
+           paddingBottom:8,
+           padding:10,
+           borderRadius:18, 
+           fontWeight: "bold",
+           paddingVertical:10,
+           paddingHorizontal:5,
+           borderWidth:0,
+           margin:5,
+           },
+
+     sbmtbtn:{
+        color:"white",
+        fontSize:18,
+        alignSelf:'center'
+        },
+
+         headerText: {
+             paddingLeft: 38,
+             paddingTop: 16,
+             fontFamily: 'Roboto,sans-serif',
+             fontSize: 22,
+             color: 'white',
+             fontWeight: 'bold',
+         },
+
+         headerText2: {
+            paddingLeft: 44,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'black',
+            fontWeight: 'bold',
+            // textDecorationLine: 'underline',
+        },
+
+        headerText3: {
+            paddingLeft: 68,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'dimgrey',
+        },
+         
+         headerTextView2: {
+            backgroundColor: 'white',
+            height: 60,
+            flexDirection: 'row'
+        },
+
+        headerTextView3: {
+            backgroundColor: '#f4f4f4',
+            height: 80,
+            flexDirection: 'row',
+            top:10
+        },
+         
+         headerTouchOpTxt2: {
+            paddingLeft: 18,
+            color: 'dimgrey'
+        },
+        
+        btn:{
+            backgroundColor: 'white',
+            margin: '4%' 
+        },
+
+        btnView:{
+            flex: 6
+        },
+        
+
+         footerTextView:{
+            marginTop:0, 
+            height: 60,
+            flexDirection: 'row',
+            alignItems: 'center', 
+            justifyContent:'space-around',
+            bottom:0,
+            fontWeight:"bold",
+            backgroundColor:'white' 
+       }, 
+       
+
+
+
+imgHorizontalScrollView1:{
+  marginTop:15,
+  flexDirection:'row',
+  width: device_width,
+  justifyContent:'space-evenly',
+  alignSelf:'center',
+
+},
+
+imageStyle:{
+  width:device_width/2-30,
+  resizeMode:'stretch',
+  alignSelf:'center',
+  borderTopLeftRadius:10,
+  borderTopRightRadius:10,
+  height:230,
+},
+
+imgTextLarge:{
+  fontFamily: 'Roboto',
+  fontSize: 18,
+  width:device_width/2-30,
+  fontWeight:'700'
+  },
+
+  imgTextSmall:{
+      fontFamily: 'Roboto',
+      fontSize: 14,
+      width:device_width/2-30,
+      fontWeight:'normal',
+      color:'orange',
+      
+      // color: 'rgb(102, 102, 102)'
+   },
+
+        
+    }
+)
+export default men;
+
+
+
+
+
+
+
+      #Page-5 Listing screen
+
+
+import React, { Component } from 'react';
+import { Text, View, ScrollView, StyleSheet, Image,Dimensions,Emoji,
+        TouchableOpacity,ImageBackground,FlatList} from 'react-native';
+
+
+const device_width=Dimensions.get("window").width;
+
+class listing extends Component{
+
+  render(){
+   return(
+    <View style={styles.container}>
+                     <View>
+                        <View style={styles.headerTextView2}>
+                        <View style={{ flex: 3 }}> 
+                        <TouchableOpacity onPress={() => {this.props.navigation.navigate('women')}}>
+                        <Image source={require('../images/left.png')}  
+                         style={{width: 25, height:25,top:18,left:5}} /> 
+                          </TouchableOpacity>                      
+                          </View>
+
+                          <View style={{ flex: 2 }}> 
+                          <TouchableOpacity>
+                          <Image source={require('../images/menu2.png')}  
+                           style={{width: 25, height:50,top:5,left:100,tintColor:'#fbb442'}} />
+                          </TouchableOpacity>
+                          </View>
+                          </View>
+                      </View>
+
+                      <ScrollView>          
+                      <View style={styles.logo}>
+                       <View style={{backgroundColor:'white',height:170,width:370,borderRadius:18,bottom:8}}>
+
+                       <View  style={styles.iconcircle1}>
+                        <TouchableOpacity>
+                         <Image 
+                          source={require('../images/ic1.jpg')}  
+                          style={{width: 80, height: 80, borderRadius: 80/ 2}} />
+                          <Text >     OValya</Text>
+                        </TouchableOpacity>
+                       </View>
+
+                          <View>
+                          <View style={{  flexDirection:"row", }}>
+
+                             <View  style={styles.icontext1}>
+                              <TouchableOpacity>
+                               <Image source={require('../images/star.png')}  
+                                style={{width: 20, height: 20,tintColor:'#fbb442'}} />
+                                 <Text style={{top:5}}>Reviews</Text>
+                              </TouchableOpacity>
+                             </View>
+
+                             <View  style={styles.icontext1}>
+                              <TouchableOpacity>
+                               <Image source={require('../images/followers.png')}  
+                                style={{width: 28, height: 28,tintColor:'#fbb442'}} />
+                                 <Text  style={{bottom:0}}>Followers</Text>
+                              </TouchableOpacity>
+                             </View>
+
+                             <View  style={styles.icontext1}>
+                              <TouchableOpacity>
+                               <Image source={require('../images/follow.png')}  
+                                style={{width: 22, height: 22,top:5,right:18,tintColor:'#fbb442'}} />
+                                 <Text style={{right:18,top:5}}>I Follow</Text>
+                              </TouchableOpacity> 
+                             </View>
+
+                            </View>
+
+                             <View style={{  flexDirection:"row", }}>
+
+                             <View  style={styles.icontext2}>
+                              <TouchableOpacity>
+                                 <Text style={{fontSize:14,right:14}} >4.8</Text>
+                              </TouchableOpacity>
+                             </View>
+
+                             <View  style={styles.icontext2}>
+                              <TouchableOpacity>
+                                 <Text style={{fontSize:14}}>516</Text>
+                              </TouchableOpacity>
+                             </View>
+
+                             <View  style={styles.icontext2}>
+                              <TouchableOpacity>
+                                 <Text style={{fontSize:14,right:8}}>1690</Text>
+                              </TouchableOpacity>
+                             </View>
+
+                             </View>
+
+                             <View style={{ 
+                                      height: 0,               
+                                      width: 240,              
+                                      borderTopColor: 'grey', 
+                                      borderTopWidth: 2,       
+                                      marginTop: 0,
+                                      bottom:150,
+                                      left:110            
+                                  }} />
+
+                            <View style={{ bottom:140,left:110}}>
+                                  <Image source={require('../images/flower2.png')}  
+                                style={{width: 25, height: 25,top:0,right:10}} />
+
+                           <View style={styles.followbtn2}>                           
+                            <TouchableOpacity  >
+                            <Image source={require('../images/follow2.png')}  
+                             style={{width: 28, height:28,left:85,tintColor:'#fbb442' }} />
+                            <Text  style = {{fontSize:18,color:'#fbb442',left:14,bottom:28}}>Follow</Text>
+                            </TouchableOpacity>
+                            </View>
+
+                           </View>
+                           
+                          </View>
+                         </View>
+                        </View> 
+                     
+    
+  
+                         <View style={{justifyContent:'space-around',width:'100%',alignItems:'center'}}>                           
+                            <TouchableOpacity  >
+                            <Image source={require('../images/listing.png')}  
+                             style={{width: 110, height:38,alignItems:'center' }} />
+                            </TouchableOpacity>
+                            </View>
+
+       <View>
+     {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',top:10,width:'100%'}}>
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View>
+                  <Image source={require('../images/list1.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  TOMMY HILFI</Text>
+                  <Text style={styles.imgTextSmall}>  1000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View>
+                  <Image source={require('../images/list2.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  MOSCHINO</Text>
+                  <Text style={styles.imgTextSmall}>  8900 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+   </View>
+   {/* </View> */}
+  </View>
+
+  {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:'100%'}}>
+
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View style={{top:11}}>
+                  <Image source={require('../images/list3.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  ILLESTEVA</Text>
+                  <Text style={styles.imgTextSmall}>  6470 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View  style={{top:11}} >
+                  <Image source={require('../images/list5.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
+                  <Text style={styles.imgTextLarge}>  COS</Text>
+                  <Text style={styles.imgTextSmall}>  2000 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+   </View>
+   {/* </View> */}
+
+   {/* <View style={{width:device_width}}> */}
+     <View style={{flexDirection:"row",justifyContent:'space-around',width:'100%'}}>
+
+     <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View>
+                  <Image source={require('../images/list6.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10,bottom:20}}>
+                  <Text style={styles.imgTextLarge}>  LUISA SPAGN</Text>
+                  <Text style={styles.imgTextSmall}>  2830 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+
+
+
+       <View style={[styles.imgHorizontalScrollView1]} >
+                <View >
+                <TouchableOpacity >
+                  <View>
+                  <Image source={require('../images/list7.jpg')} style={styles.imageStyle} />
+                  </View>
+                  <View style={{flexWrap:'wrap',marginTop:0,marginLeft:0,backgroundColor:'white',
+                  borderBottomLeftRadius:10,borderBottomRightRadius:10,bottom:20}}>
+                  <Text style={styles.imgTextLarge}>  RALPH LAUREN</Text>
+                  <Text style={styles.imgTextSmall}>  2950 ₽</Text>
+                  <Text style={styles.imgTextSmall}>      </Text>
+                  
+                  </View>
+                </TouchableOpacity>
+                </View>
+       </View>
+   
+
+      </View>
+     {/* </View> */}
+   </ScrollView>
+   </View>         
+   );
+  }
+}
+const styles = StyleSheet.create({
+         container: {
+             flex: 1,
+             backgroundColor:"#f4f4f4",
+         },
+         
+         logo:{
+            alignItems:'center',
+            marginTop:22,
+            },
+         iconsquare:{
+            width:device_width/2,
+            marginLeft:2,
+            height:230, 
+            alignContent:"center",
+            },
+           iconsquaretxt:{
+               right:50,
+            paddingLeft:10,
+            fontSize:18,
+            paddingLeft:2,
+            paddingTop:10,
+            fontWeight: "bold",
+            },
+         
+         followbtn2:{
+             bottom:2,
+             left:65,
+             height:38,
+             width:128,
+            flexDirection:"row",
+            marginTop:6,
+            paddingTop:5,
+            paddingBottom:0,
+            padding:10,
+            borderRadius:25, 
+            borderColor:'orange',
+            fontWeight: "bold",
+            paddingVertical:10,
+            paddingHorizontal:3,
+            borderWidth:1,
+            margin:0,
+            },
+            
+            btncolor:{
+                color:'#dc143c'
+                },
+
+                icontext1:{
+                    bottom:110,
+                    left:95,
+                    flexDirection:"row",
+                    marginTop:0,
+                    paddingTop:0,
+                    paddingBottom:8,
+                    padding:10,
+                    borderRadius:18, 
+                    fontWeight: "bold",
+                    paddingVertical:20,
+                    paddingHorizontal:15,
+                    borderWidth:0,
+                    margin:5,
+                    },
+
+                    icontext2:{
+                        bottom:170,
+                        left:130,
+                        flexDirection:"row",
+                        marginTop:0,
+                        paddingTop:0,
+                        paddingBottom:8,
+                        padding:10,
+                        borderRadius:18, 
+                        fontWeight: "bold",
+                        paddingVertical:20,
+                        paddingHorizontal:25,
+                        borderWidth:0,
+                        margin:5,
+                        },
+                
+         iconcircle1:{
+           flexDirection:"row",
+           marginTop:6,
+           paddingTop:8,
+           paddingBottom:8,
+           padding:10,
+           borderRadius:18, 
+           fontWeight: "bold",
+           paddingVertical:10,
+           paddingHorizontal:5,
+           borderWidth:0,
+           margin:5,
+           },
+
+     logo:{
+     alignItems:'center',
+     marginTop:22,
+     },
+
+     sbmtbtn:{
+        color:"white",
+        fontSize:18,
+        alignSelf:'center'
+        },
+     
+         headerText: {
+             paddingLeft: 38,
+             paddingTop: 16,
+             fontFamily: 'Roboto,sans-serif',
+             fontSize: 22,
+             color: 'white',
+             fontWeight: 'bold',
+         },
+
+         headerText2: {
+            paddingLeft: 68,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'black',
+            fontWeight: 'bold',
+            // textDecorationLine: 'underline',
+        },
+
+        headerText3: {
+            paddingLeft: 28,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'dimgrey',
+        },
+         
+         headerTextView2: {
+            backgroundColor: 'white',
+            height: 60,
+            flexDirection: 'row'
+        },
+
+        headerTextView3: {
+            backgroundColor: '#f4f4f4',
+            height: 80,
+            flexDirection: 'row',
+            top:10
+        },
+         
+         headerTouchOpTxt2: {
+            paddingLeft: 18,
+            color: 'dimgrey'
+        },
+        
+        btn:{
+            backgroundColor: 'white',
+            margin: '4%' 
+        },
+
+        btnView:{
+            flex: 6
+        },
+        
+         footerTextView:{
+            marginTop:0, 
+            height: 60,
+            flexDirection: 'row',
+            alignItems: 'center', 
+            justifyContent:'space-around',
+            bottom:0,
+            fontWeight:"bold",
+            backgroundColor:'white' 
+       },  
+       
+       imgHorizontalScrollView1:{
+         marginTop:15,
+         flexDirection:'row',
+         width: device_width,
+         justifyContent:'space-evenly',
+         alignSelf:'center',
+       
+       },
+       
+       imageStyle:{
+         width:device_width/2-30,
+         resizeMode:'stretch',
+         alignSelf:'center',
+         borderTopLeftRadius:10,
+         borderTopRightRadius:10,
+         height:230,
+       },
+       
+       imgTextLarge:{
+         fontFamily: 'Roboto',
+         fontSize: 18,
+         width:device_width/2-30,
+         fontWeight:'700'
+         },
+       
+         imgTextSmall:{
+             fontFamily: 'Roboto',
+             fontSize: 14,
+             width:device_width/2-30,
+             fontWeight:'normal',
+             color:'orange',
+             
+             // color: 'rgb(102, 102, 102)'
+          },
+
+
+        
+    }
+)
+export default listing;
+
+
+
+
+       #Page-6 Product Screen
+
+
+
+import React, { Component } from 'react';
+import { Text, View, ScrollView, StyleSheet,
+        Image, TouchableOpacity ,Dimensions} from 'react-native';
+import {
+            heightPercentageToDP as hp,
+            widthPercentageToDP as wp,
+           } from 'react-native-responsive-screen';
+
+
+ const images = [require('../images/pbag1.jpg'),
+                 require('../images/pbag2.jpg'),
+                 require('../images/pbag3.jpg')];
+                
+let device_width=Dimensions.get("window").width;
+let screenDecide = {
+
+    height: Dimensions.get("window").height,
+    width: Dimensions.get("window").width,  
+};
+ class product extends Component {
+    scrollRef=React.createRef()
+    constructor(props){
+        super(props);
+        this.state = {
+          selectedIndex:0,
+        //   isLandscape:false
+        }
+    }
+
+    setSelectedIndex= event => {                                   //white button work with open for manual slide
+        const viewSize= event.nativeEvent.layoutMeasurement.width;
+        const contentOffset= event.nativeEvent.contentOffset.x;
+        const selectedIndex=Math.floor(contentOffset/viewSize);
+        this.setState({selectedIndex})
+    }                                                               //white button work with open for manual slide
+
+    // componentDidMount(){                            //open for auto slide
+      
+    //     setInterval(()=>{
+    //       this.setState((prev) => ({selectedIndex:
+    //         prev.selectedIndex===images.length-1 
+    //         ? 0
+    //         : prev.selectedIndex+1}),
+    //        () => {
+    //            this.scrollRef.current.scrollTo({
+    //                animated:true,
+    //                y:0,
+    //                x:device_width*this.state.selectedIndex
+    //            })
+    //        }
+    //       )
+    //     },8000)
+    // }                                                  //open for auto slide
+
+
+    render() {
+        const {selectedIndex}=this.state
+        return (
+          
+            <View style={styles.container}>
+             
+              <ScrollView>  
+                <View>
+                 <View style={[styles.autoScrollTop,]}>   
+                        
+                   <ScrollView horizontal pagingEnabled 
+                       onMomentumScrollEnd={this.setSelectedIndex} //white button work with open for manual slide
+
+                       // {width:screenDecide.width}
+                       showsHorizontalScrollIndicator={false}
+                       ref={this.scrollRef}
+                       >
+                          {images.map((item) =>
+                             { return (
+                                <Image style={[styles.autoScrollTop,{resizeMode:'stretch'}]}
+                                source={item}
+                                /> )
+                            }
+                            )}
+                       </ScrollView> 
+                       <View style={styles.circleView}>
+                           {
+                               images.map((item,i) =>
+                               { return(
+                                  <View key={i} style={[styles.whiteCircle,{opacity: i===selectedIndex?1:0.5}]}/>
+                               )}
+                               )
+                           }
+                           
+                       </View>
+
+                       <View style={{ flex: 3 }}> 
+                        <TouchableOpacity  onPress={() => {this.props.navigation.navigate('women')}}>
+                         <Image source={require('../images/left.png')}  
+                          style={{width: 25, height:25,bottom:280,left:5,tintColor:"white"}} /> 
+                        </TouchableOpacity>                  
+                        </View>
+                           
+                    </View>
+                    </View>
+       
+                  <View> 
+                  <ScrollView>
+                   <View>
+                   <Image source={require('../images/pro1.png')}  
+                    style={{width: wp('100%'),
+                            height: hp('20%'),
+                            overflow: 'hidden',
+                            // marginTop:'130%',
+                            // width: 392, height:145,
+                            }} />
+                   </View>
+
+
+                 <View>
+                 <Text style={{fontSize:20,top:15,left:10,color:'dimgrey'}} >Description</Text>
+                 <Image source={require('../images/pro2.png')}  
+                 style={{width: wp('92%'),
+                         height: hp('10%'),
+                         overflow: 'hidden',
+                         marginLeft:'4%',
+                         borderRadius: 12,
+                         top:35,
+                         alignContent: "center",
+                          }} />
+                 </View>
+        
+
+
+                 <View>
+                 <TouchableOpacity>
+                 <Text style={{fontSize:20,top:50,left:10,color:'dimgrey'}} >Comments</Text>
+                 <Image source={require('../images/pro3.png')}  
+                 style={{
+                 width: wp('92%'),
+                 height: hp('10%'),
+                 overflow: 'hidden',
+                 marginLeft:'4%',
+                 borderRadius: 8,
+                 top:70,
+                 alignContent: "center",
+                 resizeMode: 'contain',
+                 }} />
+                 
+                 </TouchableOpacity>
+                 </View>
+
+                 <View>  
+                 <Text style={{fontSize:20,top:85,left:10,color:'dimgrey'}} >Information</Text>
+                 <Image source={require('../images/pro4.png')}  
+                  style={{
+                    //   width: 360, height:400, borderRadius: 18,top:105,left:15,
+                    marginBottom:'25%',
+                      width: wp('92%'),
+                 height: hp('60%'),
+                 overflow: 'hidden',
+                 marginLeft:'4%',
+                 borderRadius: 12,
+                 top:80,
+                 alignContent: "center",
+                 resizeMode: 'contain',
+                      }} />
+                 </View>
+                 
+
+                 </ScrollView>
+                 </View>
+                 </ScrollView>
+
+                 <View>
+                     <TouchableOpacity>
+                 <Image source={require('../images/pro5.png')}  
+                 style={{
+                    //  width: 360, height:60, borderRadius: 15,bottom:10,left:15
+                        width: wp('92%'),
+                        height: hp('10%'),
+                        overflow: 'hidden',
+                        marginLeft:'4%',
+                        borderRadius: 8,
+                        bottom:10,
+                        alignContent: "center",
+                        resizeMode: 'contain'
+                     }} />
+                 </TouchableOpacity> 
+                 </View>
+
+                 </View>
+           
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f4f4f4',
+    },
+
+   slideHeaderIconScroll:{
+      height:80,
+   },
+   slideHeaderIconScroll1:{
+    height:80,
+    width:'100%'
+ },
+   slideHeaderIconMainView:{
+    flexDirection:'row',
+    justifyContent:'space-around',
+    paddingBottom:6,
+    paddingTop:6
+ },
+   autoScrollTop:{
+       bottom:0,
+    height:300,
+    width:device_width,
+    // width:screenDecide.width
+   },
+   circleView:{
+       position:'absolute',
+       bottom :20,
+       height:5,
+       display:'flex',
+       flexDirection:'row',
+       justifyContent:'center',
+       alignItems:'center',
+       width:'100%',
+    // backgroundColor:'red'
+   },
+   whiteCircle:{
+       width:12,
+       height:12,
+       borderRadius:6,
+       margin:5,
+       backgroundColor:'#ffffff'
+   },
+  
+})
+export default product;
+
+
+
+
+   #Page-7 Filter Screen
+
+
+import React, { Component } from 'react';
+import { Text, View, ScrollView, StyleSheet, Image,Dimensions,
+        TouchableOpacity,TextInput,Content,ListItem,Left,Right,Radio} from 'react-native';
+import RadioForm from 'react-native-simple-radio-button';
+
+
+
+var langOptions = [                        //radio button
+  { label: "Women", value: 'W' },
+  { label: "Men", value: 'M' },
+  { label: "женщины", value: 'ж' },
+  { label: "люди", value: 'л' },
+
+];
+
+class filter extends Component{
+  
+
+
+  render(){
+   return(
+     <ScrollView>
+    <View style={styles.container}>
+                        <View style={styles.headerTextView2}>
+                        <TouchableOpacity>
+                        <Text style={{ 
+                              fontFamily: 'Roboto,sans-serif',
+                              fontSize: 20,
+                              color: 'black',
+                              fontWeight: 'bold',
+                          }}>Filter</Text> 
+                          </TouchableOpacity> 
+                          </View>
+
+                           <View>
+                          <View style={{ 
+                                      height: 0,               
+                                      width: 412,              
+                                      borderTopColor: '#f7f7f7', 
+                                      borderTopWidth: 1,       
+                                      marginTop: 0,
+                                    //   top:17,
+                                      left:0            
+                                  }} />
+                                  </View>
+
+
+                                  <View style={styles.headerTextView2}>
+                        <TouchableOpacity>
+
+                        <View style={{borderRadius:10,borderWidth:2,borderColor:'#f7f7f7',
+                        height:32,width:'160%',right:170,top:4}}>    
+                        <Text style={{ 
+                              fontFamily: 'Roboto,sans-serif',
+                              fontSize: 16,
+                              color: 'orange',
+                              left:5,
+                              top:2
+                          }}>Women</Text>
+                          <Text style={{left:68,bottom:18}}>✕</Text>
+                          </View>
+             
+                          </TouchableOpacity> 
+                          </View>
+
+                           <View>
+                          <View style={{ 
+                                      height: 0,               
+                                      width: 412,              
+                                      borderTopColor: '#f7f7f7', 
+                                      borderTopWidth: 1,       
+                                      marginTop: 0,
+                                    //   top:17,
+                                      left:0            
+                                  }} />
+                                  </View>
+                         
+                          <View style={{backgroundColor:'white',height:80}}>
+                              <View style={{backgroundColor:'#f7f7f7',
+                              top:15,borderRadius:10,width:'70%',left:15,flexDirection:'row'}}>
+                                  <Image  source={require('../images/search5.png')}  style={{height:40,width:40,top:5}} />
+                          <TextInput
+                           placeholder="Search"
+                           placeholderTextColor={`grey`}
+                           style={{color:'black',fontSize:22}}
+                        //    keyboardType={'number-pad'} 
+                           maxLength={50}
+                          />
+                         </View>
+
+                         <Text style={{fontSize:22,left:320,color:'grey',bottom:25}}>Cancel</Text>
+                         </View>
+                         
+                         <View style={{ 
+                            height: 0,               
+                            width: 412,              
+                            borderTopColor: '#f7f7f7', 
+                            // borderTopColor: 'black', 
+                            borderTopWidth: 1,       
+                            marginTop: 0,
+                          //   top:17,
+                            left:20            
+                         }} />
+                      
+                   
+                       <View style={{flexDirection:"row",justifyContent:'flex-start',width:"100%",
+                             height:450,backgroundColor:'white'}}>
+                                 
+                                 <View style={{ 
+                                       height: 450,               
+                                       width: 0,              
+                                       // borderTopColor: '#f7f7f7', 
+                                       borderLeftColor: '#f7f7f7', 
+                                       borderLeftWidth: 3,       
+                                       marginTop: 0,
+                                       left:122,
+                                      
+                                       alignContent:'center'
+                                     //   top:17,
+                                       // left:20            
+                                    }} />
+                
+                             
+                                       
+                                     <View style={{backgroundColor:'white',height:450,left:0}}>  
+                                      <Text style={{alignSelf:'center',fontSize:18,fontWeight:'bold',top:15,marginRight:20}}>Выбирать</Text>
+                                      <View style={{ 
+                                      height: 0,               
+                                      width: 120,              
+                                      borderTopColor: 'orange', 
+                                      borderTopWidth: 3,  
+   
+                                      marginTop: 25,
+                                    //   top:17,
+                                    //  alignItems:'center',
+                                     left:0        
+                                  }} />
+
+                               
+                                     
+                                  
+                                        
+
+                                   <View style={{marginTop:10}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Brand</Text>
+                                   </View>
+                                   
+                                   <View style={{marginTop:25}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Category</Text>
+                                   </View>
+
+                                   <View style={{marginTop:25}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Size</Text>
+                                   </View>
+
+                                   <View style={{marginTop:25}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Color</Text>
+                                   </View>
+
+                                   <View style={{marginTop:25}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Condition</Text>
+                                   </View>
+
+                                   <View style={{marginTop:25}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Price</Text>
+                                   </View>
+
+                                   <View style={{marginTop:25}}>
+                                   <Text style={{fontSize:16,color:'dimgrey',marginLeft:20}}>Sort price</Text>
+                                   </View>
+                             
+                              </View>
+                                  
+                                   
+                                                               
+                             
+                            <View>                                                 
+                              <View style={{alignSelf:'center',left:0,top:15,       //Radio button
+                              }}>
+                   
+                              <RadioForm
+                        radio_props={langOptions}
+                        initial={0}
+                        buttonSize={10}
+                        buttonOuterSize={20}
+                        radioStyle={{paddingBottom:20,marginLeft:'4%'}}
+                        selectedButtonColor={'orange'}
+                        buttonColor={'silver'}
+                        labelStyle={{ fontSize: 18,color:'orange' }}
+                        onPress={(valg)=>{this.setState({value:valg})}} />
+     </View>
+     </View>                                                                      
+
+</View>
+
+
+
+
+
+    
+{/* 
+                              <Content>
+   <Text>Select your choice</Text>
+   {
+     radioItem.map((data, key) => {
+         return (
+                  <ListItem key={key}>
+
+                     <Left>
+                         <Text>{data.label}</Text>
+                     </Left>
+                     <Right>
+                         <Radio
+                            onPress={()=> this.setState({radioValue:data.value})}
+                            color={"grey"}
+                            selectedColor={"grey"}
+                            selected={data.value === this.state.radioValue}
+                          />
+                     </Right>
+                  </ListItem>
+                 )
+       })
+   }
+</Content> */}
+                     
+                              
+                              
+
+                     
+
+<View style={{height:60,width:'100%',backgroundColor:'white'}}>
+                                  <View style={{ 
+                                      height: 0,               
+                                      width: 412,              
+                                      borderTopColor: '#f7f7f7', 
+                                      borderTopWidth: 2,       
+                                      marginTop: 0,
+                                    //   top:17,
+                                      left:0            
+                                  }} />
+  <TouchableOpacity>
+  <Text  style={{fontSize:22,left:44,top:15,color:'red'}}>Reset All</Text>
+  </TouchableOpacity>
+  <View style={{marginLeft:160,height:40,width:'45%',backgroundColor:'orange',
+   alignSelf:'center',bottom:18,borderRadius:14}}>
+  <TouchableOpacity>
+   <Text style={{fontSize:20,color:'white',alignSelf:'center',top:5}}>Apply</Text>
+  </TouchableOpacity>
+  </View>
+</View>
+
+
+                          {/* <TouchableOpacity  >
+                     <View style={{alignItems:'center',flexDirection:'row',
+                     height:50,width:'70%',borderRadius:16,top:15,left:15,backgroundColor:'#f7f7f7'}}>
+                        <Image  source={require('../images/search5.png')}  style={{height:40,width:40}} />
+                        <Text style={{fontSize:20,color:'rgb(102, 102, 102)',bottom:2}}>Search</Text>
+                     </View>
+                    </TouchableOpacity> */}
+      
+            
+                  <View>
+                  <View style={{ 
+                                      height: 0,               
+                                      width: 412,              
+                                      borderTopColor: '#f7f7f7', 
+                                      borderTopWidth: 1,       
+                                      marginTop: 0,
+                                    //   top:17,
+                                      left:0            
+                                  }} />
+                   <View style={styles.footerTextView}>
+                   <TouchableOpacity onPress={() => {this.props.navigation.navigate('women')}}>
+                    <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/filterfeed.png')}  style={[{height:40,width:40}]} />
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Feed</Text>
+                     </View>
+                    </TouchableOpacity>
+
+                   <TouchableOpacity  >
+                     <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/search5.png')}  style={{height:45,width:40}} />
+                        <Text style={{fontWeight:'bold',fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Filter</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('sell')}}>
+                     <View style={{alignItems:'center'}}>
+                        <Image  source={require('../images/sell5.png')}  style={{height:45,width:40}} />
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Sell</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('deals')}}>
+                     <View style={{alignItems:'center'}}>
+                     <Image  source={require('../images/deals5.png')} style={{height:40,width:40}} />
+                    
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>Deals</Text>
+                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('general')}}>
+                     <View style={{alignItems:'center'}}>
+                     <Image  source={require('../images/man5.png')}  style={{height:40,width:40}} />
+                     
+                        <Text style={{fontSize:14,color:'rgb(102, 102, 102)',bottom:10}}>General</Text>
+                     </View>
+                    </TouchableOpacity>
+                </View>
+            </View> 
+          </View>    
+          </ScrollView>     
+   );
+  }
+}
+const styles = StyleSheet.create({
+         container: {
+             flex: 1,
+             backgroundColor:"#f4f4f4",
+         },
+
+         radFormView: {
+          marginVertical:0,
+          left:80,
+          top:200,
+         },
+        headerText3: {
+            paddingLeft: 28,
+            paddingTop: 16,
+            fontFamily: 'Roboto,sans-serif',
+            fontSize: 18,
+            color: 'dimgrey',
+        },
+         
+         headerTextView2: {
+            backgroundColor: 'white',
+            height: 60,
+            flexDirection: 'row',
+            justifyContent:'center',
+            paddingTop:10,   
+        },
+
+        headerTextView3: {
+            backgroundColor: '#f4f4f4',
+            height: 80,
+            flexDirection: 'row',
+            top:10
+        },
+
+         footerTextView:{
+            marginTop:0, 
+            height: 60,
+            flexDirection: 'row',
+            alignItems: 'center', 
+            justifyContent:'space-around',
+            bottom:0,
+            fontWeight:"bold",
+            backgroundColor:'white' 
+       },    
+    }
+)
+export default filter;
+
+       
+
+
+
+
+          #Page-8 Sell, deals, general Screen
+
+
+
+
+import React, {Component} from 'react';
+import {View,Text, ImageBackground,StyleSheet,
+        TouchableOpacity,TextInput, ScrollView,Image} from 'react-native';
+        import {
+          heightPercentageToDP as hp,
+          widthPercentageToDP as wp,
+         } from 'react-native-responsive-screen';
+
+class sell extends Component{
+  render(){
+    return(
+    <ScrollView>
+      <View style={styles.main}>
+ 
+        <ImageBackground source={require('../images/blursell.png')}  style = {styles.imageback}>
+         <View>
+
+         <View  style= {{height:90,width:'80%',backgroundColor:'white',
+         alignItems:'center',justifyContent:'space-around',marginLeft:40,borderRadius:10}}>
+         <TouchableOpacity onPress={() => {this.props.navigation.navigate('women')}}>
+         <View>
+          <Text style = {{fontSize:18,alignContent:'center',top:10}}>You need to login to access this</Text>
+          <Text style = {{fontSize:18,alignContent:'center',top:10,right:5}}> features.</Text>
+          <Text style = {{fontSize:18,color:'orange',left:150,top:14}}>Cancel</Text>
+          <Text style = {{fontSize:18,color:'orange',left:220,bottom:10}}>Login</Text>
+         </View>
+         </TouchableOpacity>
+        </View>       
+       </View>
+      </ImageBackground>
+     
+      </View>
+      </ScrollView>
+    );
+  }
+}
+const styles = StyleSheet.create({
+main:{
+flex:1,
+overflow: 'hidden',
+width: wp('100%'),
+height: hp('100%'),
+alignSelf: 'flex-end',
+resizeMode: 'contain',
+},    
+textInput:{
+  bottom:'20%',
+  marginLeft:'0%',
+  width: wp('85%'),
+  height: hp('7%'),
+  overflow: 'hidden',
+  alignSelf:'center',  
+  borderColor:'lightgrey',
+  borderWidth:1,
+  paddingLeft:10,paddingBottom:0,
+  // backgroundColor: '#d3d3d3',
+  borderRadius:12,
+},
+
+btncolor:{
+color:'white',
+fontSize:16,
+alignItems:'center'
+},
+
+sbmtbtn:{
+  paddingBottom:'2%',
+  alignItems:'center',
+  color:"#ffff",
+  fontSize:24
+  },
+  
+nextbtn:{
+  bottom:'18%',
+  alignItems:'center',
+  width: wp('85%'),
+  height: hp('7%'),
+  overflow: 'hidden',
+  alignSelf:'center',
+  paddingTop:'2%',
+  // paddingBottom:12,
+  borderRadius:12, 
+  fontWeight: "bold",
+  backgroundColor:'#ff9501',
+  borderWidth:0,
+},
+
+skipbtn:{
+  marginLeft:'70%',
+  width: wp('21%'),
+  height: hp('4.5%'),
+  overflow: 'hidden',
+  top:'18%',
+  borderRadius:12, 
+  paddingVertical:5,
+  paddingHorizontal:18,
+  backgroundColor:'#ff9501',
+},    
+
+imageback:{
+  overflow: 'hidden',
+  width: wp('100%'),
+  height: hp('100%'),
+  alignSelf: 'flex-end',
+  resizeMode: 'contain',
+  justifyContent:'center',
+},
+
+
+});
+export default sell;
+
+   
+
+
+
+     #Page-9 Package.json
+
+
+
+
+{
+  "name": "poshmarket",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/native": "^5.9.4",
+    "@react-navigation/stack": "^5.14.4",
+    "react": "17.0.1",
+    "react-native": "0.64.1",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-phone-input": "^1.0.9",
+    "react-native-reanimated": "^2.1.0",
+    "react-native-responsive-screen": "^1.4.2",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.1.1",
+    "react-native-simple-radio-button": "^2.7.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-test-renderer": "17.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
